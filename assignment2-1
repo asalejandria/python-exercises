@@ -1,0 +1,36 @@
+# 1) Write a procedure that accepts one parameter (count) and generates a list of (count) random integers, between 0 and 1000, and puts those integers into a list, and returns the list.
+
+def some_list(count):
+    import random
+    randList = []
+    for x in range(0,count):
+        randList.append(random.randint(0,1000))
+    print(randList)
+
+
+# 2) Write a procedure called "no_5xx" which searches a list (like the one from #1 above) and removes any integer value in the range 500 to 599, and returns the resulting list.
+
+def no_5xx(count):
+    import random
+    randList = [500]
+    for x in range(count):
+        randList.append(random.randint(0,1000))
+    randKeep = []
+    for value in randList:
+        if value < 500 or value >= 600:
+            randKeep.append(value)
+    print(randKeep)
+
+
+# 3) Write a procedure that takes four parameters (lastname, firstname, score, grade) and returns a new dictionary item with those four items.
+
+def report_card(a, b, c, d):
+    report = {'lastname' : a, 'firstname': b, 'score': c, 'grade': d}
+    return report
+
+
+# 4) Write a procedure called "update_lastname" that takes two parameters (a dictionary, like from #3 above) and a string value and updates the value for the "lastname" key in the dictionary
+
+def update_lastname(dict,str):
+    dict["lastname"] = str
+    print dict
