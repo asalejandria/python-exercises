@@ -1,0 +1,52 @@
+#Alexa Alejandria, HCDE 530 – Assignment 3
+
+#Write a short program that reads input lines from standard input and writes the line to a file, prepending a three digit line number and a colon. If the user enters two blank lines, stop writing lines, and close the file.
+
+def write_file():
+    f = open("/users/alexa/documents/python/mynewfile.txt", "w")
+    i = 1
+    blank = 0
+    while True:
+        n = raw_input('Write something: ')
+        if n == '':
+            blank_line += 1
+            if blank_line == 2:
+                f.close()
+                print("Thanks for writing!")
+        else:
+            blank = 0
+        f.write('%03d:'%(i) + n + '\n')
+        i += 1
+
+
+write_file()
+
+
+# Subclass the "Person" object to create a "Faculty" object type. Faculty should have a field called "rank" which can be one of "lecturer", "assistant", "associate" or "full" and a boolean value for whether the faculty member is tenured or not. Modify __repr__ to do the right thing and create set/get methods for Faculty specific fields.
+
+class Faculty(Person):
+    def __init__(self, last, first, rank, tenure):
+        self.last, self.first, self.rank, self.tenure, self.lastfirst = last, first, rank, tenure, True
+    def __repr__(self):
+        return '<Faculty: last name: (%s), first name: (%s), rank: (%s), tenure: (%s)>' %(self.last, self.first, self.rank, str(self.tenure))
+    def setLast(self, last=""):
+        self.last = last
+    def setFirst(self, first=""):
+        self.first = first
+    def setRank (self, rank=""):
+        if rank in ['lecturer', 'assistant', 'associate', 'full']:
+            self.rank = rank
+    def setTenure (self, tenure=False):
+        if self.tenure == True:
+            self.tenure = str(tenure)
+        else:
+            self.tenure = str(tenure)
+    def getName(self):
+        if self.lastfirst:
+            return "%s, %s" % (self.last, self.first)
+        else:
+            return "%s, %s" % (self.last, self.first)
+    def getRank(self, rank = ""):
+        self.rank = rank
+    def getTenured(self, tenure=False):
+        self.tenure = tenure
